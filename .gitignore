@@ -1,0 +1,13 @@
+/logs
+/env
+/user_prueba_dir-prueba23
+/download
+__pycache__/
+temp_auto_push.bat
+*.pyc
+/C:
+/.env
+/profiles
+**/__pycache__/
+*.py[cod].gitignore
+branch_structure.json

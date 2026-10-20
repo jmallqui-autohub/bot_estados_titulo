@@ -9,3 +9,4 @@ __pycache__/
 /profiles
 **/__pycache__/
 *.py[cod]
+/graphify-out

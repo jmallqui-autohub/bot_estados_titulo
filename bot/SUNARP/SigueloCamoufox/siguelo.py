@@ -26,6 +26,15 @@ def login_siguelo(historial: Logger, registro:Inmatriculacion, page:Page,browser
         url=os.getenv('URL_SIGUELO')
         page.goto(url, wait_until='domcontentloaded', timeout=10000)
         historial.debug('Cargo la pagina del siguelo')
+        
+        # Se verifica nuevo poppup
+        try:
+            if page.locator('.promo-close').is_visible(timeout=3000):
+                page.click('#btnCerraAsistente')
+                page.click('#mat-dialog-0 > div > button')
+                historial.debug('Se cerro el popup')
+        except Exception:
+            pass
 
         # Se verifica si existe el popup de comunicados
         try:

@@ -60,10 +60,10 @@ def descargar_documentos_inscripcion(historial: Logger, page: Page, registro:Inm
             historial.obs(f'Faltan los siguientes campos: {', '.join(faltantes)}')
             if registro.titulo_tipo == "P":
                 registro.observacion=f'Faltan los siguientes campos: {', '.join(faltantes)} para completar la descarga de los documentos en el siguelo.'
-                imagen_bytes = page.screenshot()
-                imagen_b64 = base64.b64encode(imagen_bytes).decode('utf-8')
-                html=generar_html_errores_siguelo(imagen_b64,registro)
-                enviar_correo(CORREOS_ERROR, f"Error Inscripcion - Faltan documentos en SUNARP (TITULO {registro.titulo})", html, 1, '', '', '', historial, html=True)
+                # imagen_bytes = page.screenshot()
+                # imagen_b64 = base64.b64encode(imagen_bytes).decode('utf-8')
+                # html=generar_html_errores_siguelo(imagen_b64,registro)
+                # enviar_correo(CORREOS_ERROR, f"Error Inscripcion - Faltan documentos en SUNARP (TITULO {registro.titulo})", html, 1, '', '', '', historial, html=True)
                 page.locator(f'#mat-dialog-{valor} > app-partidas > mat-card-header > mat-toolbar > mat-icon').click()
                 raise Exception('Faltan campos para la descarga de documentos')
             else:

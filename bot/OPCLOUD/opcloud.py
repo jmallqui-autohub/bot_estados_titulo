@@ -244,10 +244,10 @@ def actualizar_opencloud(historial:Logger,registro:Inmatriculacion):
             registro.observacion=f'Estado del Siguelo: {registro.estado_siguelo}'
             if not registro.orden_giro:enviar_seguimiento(historial,registro,'open-cloud-ogiro',registro.observacion)
             else:enviar_seguimiento(historial,registro,'open-cloud',registro.observacion)
-        else:
-            subject=f"Error Carga de estados titulos OpenCloud - Nro Inmatriculacion {registro.interno} "
-            mensaje=f"titulo:{registro.titulo} - Kardex: {registro.kardex} - Estado: {registro.estado_siguelo}" 
-            enviar_correo(CORREOS_ERROR,subject,mensaje,1,'','',False,historial)
+        # else:
+        #     subject=f"Error Carga de estados titulos OpenCloud - Nro Inmatriculacion {registro.interno} "
+        #     mensaje=f"titulo:{registro.titulo} - Kardex: {registro.kardex} - Estado: {registro.estado_siguelo}" 
+        #     enviar_correo(CORREOS_ERROR,subject,mensaje,1,'','',False,historial)
 
     except Exception as e:
         historial.error(f'Error en el envio de los datos al opencloud.{e}')
